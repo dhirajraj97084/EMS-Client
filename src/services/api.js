@@ -1,9 +1,18 @@
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
+// Get API URL from environment or fallback to localhost
+const getApiUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL
+  }
+  // Fallback for development
+  return 'http://localhost:5001'
+}
+
 // Create axios instance
 export const api = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/api`,
+  baseURL: `${getApiUrl()}/api`,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

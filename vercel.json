@@ -3,10 +3,9 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/(.*\\.(?:js|css|png|jpg|jpeg|gif|svg|ico|txt|woff|woff2))", "destination": "/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
     "VITE_API_URL": "https://your-backend-domain.vercel.app"
